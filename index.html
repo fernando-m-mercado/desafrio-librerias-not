@@ -20,31 +20,39 @@
                     <input 
                     type="text" 
                     class="form-control" 
-                    id="inputNombreProducto"
+                    id="inputNombre"
                     />
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Precio Compra</label>
+                    <label class="form-label">Sexo (M o F)</label>
                     <input 
-                    type="number" 
+                    type="text" 
                     class="form-control" 
-                    id="inputPrecioCompra"
+                    id="inputSexo"
                     />
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Precio Venta</label>
+                    <label class="form-label">Edad</label>
                     <input 
                     type="number" 
                     class="form-control" 
-                    id="inputPrecioVenta"
+                    id="inputEdad"
                     />
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Cantidad</label>
+                    <label class="form-label">Peso en kilogramos</label>
                     <input 
                     type="number" 
                     class="form-control" 
-                    id="inputCantidad"
+                    id="inputPeso"
+                    />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Altura en metros</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="inputAltura"
                     />
                 </div>
                 <div class= "d-grid gap2">
@@ -53,17 +61,23 @@
             </form>
         </div>
         <div class="col-md-6">
-            <table id="tabla Produtos" class="table table-striped table-hover">
+            <table id="tablaPacientes" class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <td>Nombre</td>
-                        <td>Precio Compra</td>
-                        <td>Precio Venta</td>
-                        <td>Cantidad</td>
+                        <td>Sexo</td>
+                        <td>Edad</td>
+                        <td>Altura</td>
+                        <td>Peso</td>
+                        <td>IMC</td>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
+            <div class="imcResultado">
+                <h4>Aca va a decir si precisa o no imc</h4>
+                <tbody></tbody>
+            </div>
         </div>
     </div>
 
