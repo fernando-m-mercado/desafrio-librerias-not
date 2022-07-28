@@ -16,7 +16,7 @@ class Pacientes {
         this.age = edad;
         this.weight = peso;
         this.height = altura;
-        this.imc = (peso / (altura**2))
+        this.imc = Math.round(peso / (altura**2))
 
     }
 }
