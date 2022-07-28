@@ -1,75 +1,3 @@
-
-/*
-
-let productos = []
-
-let formulario;
-let inputNombre;
-let inputPrecioVenta;
-let inputPrecioCompra;
-let inputCantidad;
-let tabla;
-
-class Productos {
-    constructor(nombre, precioCompra, precioVenta, cantidad) {
-        this.nombre = nombre
-        this.precioCompra = precioCompra
-        this.precioVenta = precioVenta
-        this.cantidad = cantidad
-    }
-}
-
-function inicializarElementos() {
-    formulario = document.getElementById("formulario")
-    inputNombre = document.getElementById("inputNombreProducto")
-    inputPrecioCompra = document.getElementById("inputPrecioCompra")
-    inputPrecioVenta = document.getElementById("inputPrecioVenta")
-    inputCantidad = document.getElementById("inputCantidad")
-    tabla = document.getElementById("tablaProductos");
-}
-
-function inicializarEventos() {
-    formulario.onsubmit = (event) => validarFormulario(event)
-}
-
-function validarFormulario(event) {
-    event.preventDefault();
-    let nombre = inputNombre.value
-    let precioCompra = parseFloat(inputPrecioCompra.value);
-    let precioVenta = parseFloat(inputPrecioVenta.value);
-    let cantidad = parseInt(inputCantidad.value);
-
-    let producto = new Productos(nombre, precioCompra, precioVenta, cantidad)
-
-    productos.push(producto)
-
-    formulario.reset();
-    agregarProductosTabla();
-
-}
-
-function agregarProductosTabla(){
-    productos.forEach ((producto) => {
-        let filaTabla = document.createElement("tr");
-        filaTabla.innerHTML=`
-        <td>${producto.nombre}</td>
-        <td>${producto.precioCompra}</td>
-        <td>${producto.precioVenta}</td>
-        <td>${producto.cantidad}</td>`;
-
-        tabla.tBodies[0].append(filaTabla);
-    });
-}
-
-function main() {
-    inicializarElementos()
-    inicializarEventos()
-    
-}
-
-main ()
-*/
-
 let pacientes = []
 
 let formulario;
@@ -88,7 +16,7 @@ class Pacientes {
         this.age = edad;
         this.weight = peso;
         this.height = altura;
-        this.imc = Math.round(peso / (altura**2))
+        this.imc = (peso / (altura**2))
 
     }
 }
@@ -105,7 +33,7 @@ function inicializarElementos () {
 }
 
 function inicializarEventos () {
-    formulario.onsubmit = (event) => validarFormulario(event)
+    formulario.onsubmit = (event) => validarFormulario(event)   
 }
 
 function validarFormulario(event) {
@@ -124,7 +52,11 @@ function validarFormulario(event) {
     limpiarTabla();
     agregarPacientesTabla();
     almacenarPacientesLocalStorage ();
+    
+    
+ 
 }
+
 
 
 function agregarPacientesTabla() {
@@ -134,12 +66,55 @@ function agregarPacientesTabla() {
         <td>${paciente.name}</td>
         <td>${paciente.sex}</td>
         <td>${paciente.age}</td>
-        <td>${paciente.weight}</td>
         <td>${paciente.height}</td>
+        <td>${paciente.weight}</td>
         <td>${paciente.imc}</td>`;
 
         tabla.tBodies[0].append(filaTabla);
+        
+
+        if (paciente.imc <= 18.4){
+            Swal.fire({
+                icon: 'info',
+                title: 'Indice de Masa Corporal',
+               text: `Estas muy bajo de peso`,
+             })
+        }
+        if (paciente.imc >= 18.5 && paciente.imc <= 24.9){
+            Swal.fire({
+                icon: 'info',
+                title: 'Indice de Masa Corporal',
+               text: `¡Estas en peso optimo!`,
+             })
+
+             if (paciente.imc >= 30 ) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Indice de Masa Corporal',
+                   text: `¡Estas OBESO!`,
+                 })
+            }
+
+        }
+
+
+        
+         
+       
+        
+    
+
     }  )
+}
+
+
+function mostrarAlert(){
+   Swal.fire({
+        icon: 'info',
+        title: 'Indice de Masa Corporal',
+       text: `Su IMC: ${pacientes.imc}`,
+     })
+
 }
 
 
@@ -164,7 +139,10 @@ function main() {
     inicializarElementos()
     inicializarEventos()
     obtenerPacientesLocalStorage()
-    agregarPacientesTabla();
+    agregarPacientesTabla();  
+    
+    
+    
 }
 
 main ()
