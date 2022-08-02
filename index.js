@@ -146,3 +146,26 @@ function main() {
 }
 
 main ()
+
+
+
+function registrarPaciente(paciente){
+    fetch("https://62e87a29249bb1284eaf103a.mockapi.io//Pacientes", {
+        mothod:"POST",
+        body: JSON.stringify(producto),
+        headers: {
+            "Content-type":"application/json"
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
+
+const pacienteARegistrar = {
+    "Nombre":"Esteban",
+    "Edad":45,
+    "Altura":178,
+    "Peso":75,
+};
+
+registrarPaciente(pacienteARegistrar)
